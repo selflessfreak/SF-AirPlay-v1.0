@@ -1,20 +1,32 @@
 {
-    "name":  "SF-AirPlay-v1.0 (Experimental)",
-    "version":  "1.0.0-beta",
-    "new_install_prompt_erase":  true,
-    "builds":  [
-                   {
-                       "chipFamily":  "ESP32-S3",
-                       "parts":  [
-                                     {
-                                         "offset":  0,
-                                         "path":  "firmware/esp32s3-n16r8-d07-0.1.0-beta-merged.bin"
-                                     },
-                                     {
-                                         "offset":  12713984,
-                                         "path":  "firmware/sf-airplay-v1.0-storage.bin"
-                                     }
-                                 ]
-                   }
-               ]
+  "name": "SF-AirPlay D07 - Working 15-Band EQ",
+  "version": "1.0.1",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "firmware/d07-bootloader.bin",
+          "offset": 0
+        },
+        {
+          "path": "firmware/d07-partitions.bin",
+          "offset": 32768
+        },
+        {
+          "path": "firmware/d07-ota-init.bin",
+          "offset": 102400
+        },
+        {
+          "path": "firmware/d07-working-15band-eq.bin",
+          "offset": 131072
+        },
+        {
+          "path": "firmware/d07-storage.bin",
+          "offset": 6422528
+        }
+      ]
+    }
+  ]
 }
