@@ -49,6 +49,28 @@ body{font-family:-apple-system,system-ui,sans-serif;background:linear-gradient(1
 .tab.on{background:#e94560;border-color:#e94560;color:#fff}
 .form-group select{width:100%;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;padding:10px 12px;font-size:13px;cursor:pointer}
 .form-group select option{background:#16213e}
+
+/* SF-AIRPLAY-RED-THEME-2026 */
+:root{color-scheme:dark;--red:#ff1935;--red2:#ba0018;--panel:#111113;--edge:#333338;--mute:#a8a8ad}
+html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;background:radial-gradient(ellipse 90% 18% at 55% -3%,#4f0610 0%,transparent 85%),#030304!important;color:#f8f8fa!important;padding:16px 12px 74px!important;line-height:1.45}
+.wrap{max-width:900px!important;margin:0 auto!important}
+.header{text-align:left!important;padding:14px 2px 20px!important;position:relative}.header h1{font-size:clamp(25px,5vw,35px)!important;letter-spacing:-1px;font-weight:800!important;margin:0!important}.header p{color:#b9b9be!important;font-size:13px!important}
+.sf-brand{display:flex;align-items:center;gap:13px}.sf-mark{width:46px;height:46px;display:grid;place-items:center;color:var(--red);font-size:34px;font-weight:800;filter:drop-shadow(0 0 14px rgba(255,16,43,.28))}.sf-brand small{color:#a9a9b0;font-size:12px}.sf-brand strong{display:block;font-size:clamp(23px,5.5vw,33px);letter-spacing:-.75px}.sf-brand em{color:var(--red);font-style:normal}
+.sf-dac{background:linear-gradient(110deg,#171719,#111113 63%,#44030c);border:1px solid #414145;border-radius:21px;margin-bottom:18px;padding:19px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 35px #0008}.sf-dac-icon{font-size:28px;color:white}.sf-dac b{font-size:15px}.sf-dac span{display:block;font-size:12px;color:#bdbdc4}.sf-dac .sf-wave{margin-left:auto;color:var(--red);font-size:31px;letter-spacing:2px}
+.sf-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 18px}.sf-tile{border-radius:17px;background:linear-gradient(155deg,#1a1a1d,#0d0d0f);border:1px solid #35353a;text-align:center;padding:13px 5px;min-width:0;box-shadow:inset 0 1px #ffffff08}.sf-tile .sf-ico{display:block;color:var(--red);font-size:26px;font-weight:700}.sf-tile b{display:block;font-size:12px}.sf-tile small{display:block;color:#b7b7bc;font-size:10px;line-height:1.3;margin-top:3px}
+.card{border-radius:22px!important;background:linear-gradient(145deg,#151517,#0a0a0c 80%)!important;border:1px solid #343439!important;box-shadow:0 8px 30px #0009,inset 0 1px #ffffff07!important;padding:19px!important;margin:0 0 16px!important;backdrop-filter:none!important}.card h2{font-size:19px!important;color:white!important;font-weight:750!important;letter-spacing:-.5px}.card h2:before{content:'▥';color:var(--red);margin-right:10px;font-size:20px}.nav{text-align:left!important}.nav a,a{color:#ff5267}
+.status-bar{border:1px solid #34343a!important;border-radius:14px!important;background:#161619!important;color:#eee!important;text-align:left!important;padding:13px!important}.status-bar.ok{border-color:#28533c!important}.status-bar.err{border-color:#8b2534!important}
+.btn,button,select,input[type=text],input[type=password]{font-family:inherit!important}.btn{border-radius:12px!important;padding:11px 15px!important;font-weight:650!important}.btn-primary{background:linear-gradient(180deg,#ff2944,#d50023)!important;color:#fff!important;box-shadow:0 5px 17px #ff001c25!important}.btn-secondary,.tab{background:linear-gradient(140deg,#29292d,#151518)!important;border:1px solid #414149!important;color:#f6f6f6!important}.btn-danger{background:#690f1c!important}.btn-primary:hover{filter:brightness(1.14)}input[type=range]{accent-color:var(--red)!important}
+input[type=text],input[type=password],select{background:#1a1a1d!important;border:1px solid #414148!important;border-radius:12px!important;color:white!important}select option{background:#141416!important}.info-item,.wifi-item{background:#1d1d20!important;border:1px solid #303036!important;border-radius:12px!important}.info-item label,.form-group label{color:#aaaab0!important}.msg.ok{background:#123622!important}.msg.err{background:#4d101c!important}.tab.on,.wifi-item.sel{background:#a91026!important;border-color:var(--red)!important}
+.sf-bottom{margin:24px 2px 8px;padding:14px 7px;border-top:1px solid #2b2b30;color:#8e8e95;font-size:11px;display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap}.sf-bottom strong{color:#f0f0f2}
+@media(max-width:480px){.sf-dac{padding:15px}.sf-tile{padding:12px 3px}.sf-tile b{font-size:11px}.sf-tile small{font-size:9px}.card{padding:15px!important}.eq-actions{gap:7px!important}}
+
+/* SF EQ enhancement */
+.sf-quick{margin:21px 0 4px}.sf-quick-title{font-size:17px;font-weight:750;margin-bottom:12px}.sf-quick-title small{color:#a8a8af;font-size:11px;font-weight:400}.sf-quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.sf-quick-grid button{color:#fff;background:linear-gradient(160deg,#27272a,#111113);border:1px solid #42424a;border-radius:13px;padding:15px 5px;font-size:13px;font-weight:600}.sf-quick-grid button:nth-child(2){background:linear-gradient(#fa173a,#990019);border-color:#ff435c}.sf-quick-grid button:active{transform:scale(.98)}
+#eq-card{overflow:hidden}#eq-card h2:before{content:'☷'}
+.eq-container{gap:1px!important;height:295px!important;width:100%;min-width:0!important;padding:6px 0!important;align-items:flex-end!important}.eq-band{flex:1 1 0!important;min-width:0!important;overflow:visible}.eq-band .val{color:#f9f9fb!important;font-size:clamp(8px,2vw,11px)!important;font-weight:650!important}.eq-band .freq{font-size:clamp(7px,1.8vw,11px)!important;color:#d1d1d6!important;white-space:normal!important;overflow-wrap:anywhere}.eq-band input[type=range]{width:100%!important;max-width:30px!important;height:213px!important;display:block!important;margin:auto!important;writing-mode:vertical-lr!important;direction:rtl!important;touch-action:none!important}.eq-band input[type=range]::-webkit-slider-runnable-track{width:6px!important;background:linear-gradient(0deg,#ed102f,#323238)!important;border-radius:8px!important}.eq-band input[type=range]::-webkit-slider-thumb{width:18px!important;height:18px!important;background:#fff!important;border:1px solid #ccc!important;box-shadow:0 2px 5px #0009!important;margin-left:-6px!important}.eq-band input[type=range]::-moz-range-track{width:6px!important;background:#ed102f!important}.eq-band input[type=range]::-moz-range-thumb{background:#fff!important;border:0!important;width:18px!important;height:18px!important}.eq-scale{margin-top:33px!important;margin-bottom:25px!important;margin-right:6px!important}.eq-scale span{color:#bbb!important}.eq-actions{align-items:center!important;gap:8px!important}.presets{margin-top:0!important}.presets select{padding:11px!important;min-width:130px!important}
+@media(max-width:430px){.eq-container{height:255px!important}.eq-band input[type=range]{height:179px!important}.eq-scale{margin-top:32px!important;margin-bottom:23px!important}.eq-band .val{font-size:8px!important}.eq-band .freq{font-size:8px!important}.eq-actions .btn{font-size:12px!important}}
+
 </style>
 <style id='sf-apple-skin'>
 /* SF-AirPlay — modern, Apple-inspired responsive UI skin.
@@ -95,7 +117,7 @@ body.sf-light .wifi-item,body.sf-light .info-item{background:rgba(232,240,254,.3
 </style>
 </head><body>
 <div class='wrap'>
-<div class='header'><h1>Equalizer</h1><p id='eq-subtitle'>15-Band Parametric EQ</p></div>
+<div class="header"><div class="sf-brand"><div class="sf-mark" aria-hidden="true">▥</div><div><strong>SF - AirPlay <em>v1.0</em></strong><small>ESP32-S3 Audio Receiver</small></div></div></div><div class="sf-dac"><div class="sf-dac-icon" aria-hidden="true">▣</div><div><b>AUDIOCULAR D07 DAC</b><span>ESP32-S3 N16R8</span></div><div class="sf-wave" aria-hidden="true">∿∿</div></div><div class="sf-tiles"><div class="sf-tile"><span class="sf-ico">◉</span><b>AirPlay</b><small>Audio Receiver</small></div><div class="sf-tile"><span class="sf-ico">⌁</span><b>USB DAC</b><small>AUDIOCULAR D07</small></div><div class="sf-tile"><span class="sf-ico">▥</span><b>Audio</b><small>24-bit · 48 kHz output</small></div></div><p id="eq-subtitle" style="color:#aaa;margin-bottom:10px">15-Band Parametric EQ · changes apply only when you press Apply</p>
 <div class='nav'><a href='/'>&#8592; Back to Settings</a></div>
 <div class='card' id='eq-card'><h2>EQ Bands</h2>
 <div style='display:flex'>
@@ -115,7 +137,7 @@ body.sf-light .wifi-item,body.sf-light .info-item{background:rgba(232,240,254,.3
 <option value='loudness'>Loudness</option>
 </select></div>
 </div>
-<div id='eq-msg'></div>
+<div class="sf-quick"><div class="sf-quick-title">Quick Presets <small>Press Apply to save</small></div><div class="sf-quick-grid"><button onclick="flatEQ()">Flat</button><button onclick="loadPreset('v_shape')">Music</button><button onclick="loadPreset('loudness')">Movie</button><button onclick="loadPreset('vocal')">Vocal</button><button onclick="loadPreset('bass_boost')">Bass +</button><button onclick="loadPreset('treble_boost')">Treble +</button></div></div><div id='eq-msg'></div>
 </div>
 <div class='card' id='sub-card' style='display:none'><h2>Subwoofer</h2>
 <div class='form-group'><label for='sub-level'>Sub Level</label>
@@ -164,7 +186,7 @@ body.sf-light .wifi-item,body.sf-light .info-item{background:rgba(232,240,254,.3
 <button class='btn btn-secondary' onclick='flatBiampEQ()'>Reset</button>
 </div>
 <div id='ba-eq-msg'></div>
-</div></div>
+</div><div class="sf-bottom"><strong>SF - AirPlay v1.0</strong><span>ESP32-S3 N16R8 · D07 · 15-Band EQ</span></div></div>
 <script>
 var BANDS=15;
 var FREQS=[20,31.5,50,80,125,200,315,500,800,'1.25k','2k','3.15k','5k','8k','16k'];
