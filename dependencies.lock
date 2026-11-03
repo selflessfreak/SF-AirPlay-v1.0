@@ -1,4 +1,22 @@
 dependencies:
+  averyy/usb_host_uac2:
+    component_hash: 06641f7eebf22017d13c5bf78381e181052a844f1943d07a63c35a43b4b25696
+    dependencies:
+    - name: espressif/usb
+      registry_url: https://components.espressif.com
+      require: private
+      rules:
+      - if: idf_version >=6.0
+      version: ^1.6.0
+    - name: idf
+      require: private
+      version: '>=5.4'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32s3
+    version: 0.1.3
   espressif/cmake_utilities:
     component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
     dependencies:
@@ -134,7 +152,7 @@ dependencies:
   idf:
     source:
       type: idf
-    version: 5.5.3
+    version: 5.5.0
   lvgl/lvgl:
     component_hash: 7d82410747bbfb319531449749e940f440f8414f041f9eaba13f0d1dd7f58cdd
     dependencies:
@@ -167,6 +185,7 @@ dependencies:
       type: service
     version: 9.6.0~1
 direct_dependencies:
+- averyy/usb_host_uac2
 - espressif/esp_audio_codec
 - espressif/esp_lvgl_port
 - espressif/led_strip
@@ -175,6 +194,6 @@ direct_dependencies:
 - espressif/usb_device_uac
 - espressif/usb_host_uac
 - lvgl/lvgl
-manifest_hash: bfd86ca26b20e46a9e1b371a23d574cf887b719e903ad23de8a46ef50284ab1d
+manifest_hash: 685839bd5d2bd1dcadcb574f64defcf9855869d5a057dde239366191fe28371b
 target: esp32s3
 version: 2.0.0

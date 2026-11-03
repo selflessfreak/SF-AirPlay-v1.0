@@ -25,8 +25,10 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-#ifdef CONFIG_DAC_TAS58XX
+#if defined(CONFIG_DAC_TAS58XX) || defined(CONFIG_AUDIO_OUTPUT_UAC2_HOST)
 #include "eq_events.h"
+#endif
+#ifdef CONFIG_DAC_TAS58XX
 #include "dac_tas58xx.h"
 #include "dac_tas58xx_eq.h"
 #endif
@@ -990,7 +992,7 @@ static esp_err_t system_info_handler(httpd_req_t *req) {
                           reset_reason_str(esp_reset_reason()));
   cJSON_AddNumberToObject(info, "uptime_s",
                           (double)(esp_timer_get_time() / 1000000));
-#ifdef CONFIG_DAC_TAS58XX
+#if defined(CONFIG_DAC_TAS58XX) || defined(CONFIG_AUDIO_OUTPUT_UAC2_HOST)
   cJSON_AddBoolToObject(info, "eq_supported", true);
 #else
   cJSON_AddBoolToObject(info, "eq_supported", false);
@@ -1197,10 +1199,10 @@ static esp_err_t fs_list_handler(httpd_req_t *req) {
 }
 
 /* ================================================================== */
-/*  EQ Page + API  (only when TAS58xx DAC is configured)               */
+/*  EQ Page + API (TAS58xx hardware or D07 software DSP)                */
 /* ================================================================== */
 
-#ifdef CONFIG_DAC_TAS58XX
+#if defined(CONFIG_DAC_TAS58XX) || defined(CONFIG_AUDIO_OUTPUT_UAC2_HOST)
 
 static esp_err_t eq_page_handler(httpd_req_t *req) {
   return serve_spiffs_file(req, "/spiffs/www/eq.html", "text/html");
@@ -1289,7 +1291,7 @@ static esp_err_t eq_post_handler(httpd_req_t *req) {
   return ESP_OK;
 }
 
-#endif /* CONFIG_DAC_TAS58XX */
+#endif /* hardware or D07 EQ */
 
 esp_err_t web_server_start(uint16_t port) {
   if (s_server) {
@@ -1483,7 +1485,7 @@ esp_err_t web_server_start(uint16_t port) {
   windows_captive.uri = "/redirect";
   httpd_register_uri_handler(s_server, &windows_captive);
 
-#ifdef CONFIG_DAC_TAS58XX
+#if defined(CONFIG_DAC_TAS58XX) || defined(CONFIG_AUDIO_OUTPUT_UAC2_HOST)
   httpd_uri_t eq_page_uri = {
       .uri = "/eq", .method = HTTP_GET, .handler = eq_page_handler};
   httpd_register_uri_handler(s_server, &eq_page_uri);

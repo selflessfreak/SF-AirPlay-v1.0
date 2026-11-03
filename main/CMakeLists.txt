@@ -49,7 +49,9 @@ set( SRC_FILES
 # carries weak defaults for the optional entry points, so a backend only has
 # to implement what it actually supports.
 list(APPEND SRC_FILES "audio/audio_output_common.c")
-if(CONFIG_AUDIO_OUTPUT_SPDIF)
+if(CONFIG_AUDIO_OUTPUT_UAC2_HOST)
+    list(APPEND SRC_FILES "audio/audio_output_uac2_host.c")
+elseif(CONFIG_AUDIO_OUTPUT_SPDIF)
     list(APPEND SRC_FILES "audio/audio_output_spdif.c")
 elseif(CONFIG_AUDIO_OUTPUT_UAC_HOST)
     list(APPEND SRC_FILES "audio/audio_output_uac_host.c")
