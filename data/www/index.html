@@ -131,11 +131,199 @@ input[type=text],input[type=password],select{background:#1a1a1d!important;border
 .sf-footer {display:none!important}
 </style>
 
+
+<style id="sf-mobile-v104">
+:root {
+  color-scheme: dark;
+  --sf-bg:#050506;
+  --sf-panel:#131315;
+  --sf-panel2:#1d1d20;
+  --sf-border:#343438;
+  --sf-text:#fafafa;
+  --sf-muted:#aaaab1;
+  --sf-accent:#ff1737;
+  --sf-red:#ff1737;
+}
+html { scroll-behavior:smooth }
+body {
+  background:
+    radial-gradient(ellipse 90% 290px at 50% 0%,
+      rgba(130,0,23,.43),transparent),
+    #050506!important;
+  color:#fafafa!important;
+  padding:18px 15px 100px!important;
+}
+.wrap {max-width:900px!important}
+.sf-topbar,.sf-footer {display:none!important}
+.sf-brand {gap:14px!important;align-items:center!important}
+.sf-brand strong {
+  font-size:clamp(25px,5.5vw,34px)!important;
+  line-height:1.15;
+  letter-spacing:-.8px;
+}
+.sf-brand em {color:#ff1737!important}
+.sf-mark {
+  color:#ff1737!important;
+  filter:drop-shadow(0 0 12px #d8003655);
+}
+.header {padding:15px 4px 20px!important}
+.sf-dac,.sf-tile,.card,.status-bar,.info-item {
+  border:1px solid #38383d!important;
+  background:linear-gradient(145deg,#19191c,#101012)!important;
+  box-shadow:0 12px 30px #0005!important;
+  border-radius:22px!important;
+}
+.sf-dac {
+  padding:20px!important;
+  margin-bottom:14px!important;
+  background:linear-gradient(110deg,#19191c 52%,#45000d)!important;
+}
+.sf-dac b {font-size:16px}
+.sf-dac span {color:#b9b9c0}
+.sf-wave {color:#ff1737!important}
+.sf-tiles {
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+  margin-bottom:17px!important;
+}
+.sf-tile {
+  padding:17px 5px!important;
+  min-height:105px!important;
+}
+.sf-ico {color:#ff1737!important;font-size:27px!important}
+.sf-tile b {font-size:13px!important}
+.sf-tile small {font-size:11px!important;color:#aaaab0!important}
+.card {padding:22px!important;margin-bottom:16px!important}
+.card h2 {color:#fff!important;font-size:19px!important}
+.card h2:before {
+  content:"≡";
+  color:#ff1737;
+  margin-right:10px;
+  font-weight:900;
+}
+.status-bar {padding:16px!important;margin-bottom:18px!important}
+.status-bar.ok {border-color:#245944!important}
+.status-bar.err {border-color:#7e2737!important}
+.btn-primary,.btn-danger,.sf-quick-grid button.active {
+  background:linear-gradient(180deg,#ff2545,#ce0027)!important;
+  color:#fff!important;
+  border:1px solid #ff3552!important;
+}
+.btn,.sf-quick-grid button,select,input {
+  border-radius:13px!important;
+}
+input[type=range] {accent-color:#ff1737!important}
+input[type=text],input[type=password],input[type=number],select {
+  background:#1b1b1e!important;
+  border:1px solid #3f3f45!important;
+  color:#fff!important;
+}
+.form-group label {color:#b7b7bc!important}
+.info-item {padding:13px!important}
+.nav a {color:#ff536c!important}
+.sf-quick {margin-top:19px!important}
+.sf-quick-grid {
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+.sf-quick-grid button {
+  min-height:60px!important;
+  background:linear-gradient(145deg,#29292d,#171719)!important;
+  border:1px solid #424247!important;
+  color:#fff!important;
+  font-weight:700!important;
+}
+.sf-quick-grid button:nth-child(2) {
+  background:linear-gradient(#ff2545,#c90028)!important;
+}
+.sf-quick-title {color:#fff!important;font-size:18px!important}
+.sf-mobile-nav {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:3px;
+  padding:10px max(10px,env(safe-area-inset-left))
+    calc(12px + env(safe-area-inset-bottom));
+  background:rgba(10,10,12,.96);
+  border-top:1px solid #39393e;
+  backdrop-filter:blur(20px);
+}
+.sf-mobile-nav a {
+  color:#b7b7bd;
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  font-size:11px;
+  font-weight:600;
+  min-height:48px;
+}
+.sf-mobile-nav a span {font-size:21px;line-height:1}
+.sf-mobile-nav a.current {color:#ff2948}
+.sf-volume-note {
+  margin:0 0 16px;
+  border:1px solid #3a3a40;
+  border-radius:19px;
+  background:linear-gradient(120deg,#1c1c1f,#25060c);
+  padding:18px;
+}
+.sf-volume-note b {display:block;color:#fff;font-size:16px}
+.sf-volume-note p {
+  margin:6px 0 0;
+  color:#bcbcc2;
+  font-size:13px;
+}
+.sf-eq-scroll {
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+  scrollbar-color:#ff1737 #202024;
+  padding-bottom:12px;
+}
+.sf-eq-scroll .eq-container {
+  min-width:760px!important;
+  flex:1 0 760px!important;
+  justify-content:space-between!important;
+}
+.sf-eq-scroll .eq-scale {position:sticky;left:0;z-index:2}
+.sf-eq-hint {
+  color:#aeb0b7;
+  font-size:12px;
+  margin:0 0 12px;
+}
+@media(max-width:600px){
+  body {padding:12px 12px 105px!important}
+  .header {padding:11px 0 18px!important}
+  .sf-dac {padding:16px!important}
+  .sf-tiles {gap:7px!important}
+  .sf-tile {padding:12px 3px!important;min-height:95px!important}
+  .sf-tile b {font-size:11px!important}
+  .sf-tile small {font-size:9px!important}
+  .card {padding:17px!important;border-radius:20px!important}
+  .sf-quick-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .eq-actions {display:flex!important;flex-wrap:wrap!important}
+  .eq-actions .btn {flex:1}
+}
+</style>
+
 </head><body>
 <div class='wrap'>
 <div class="header"><div class="sf-brand"><div class="sf-mark" aria-hidden="true">▥</div><div><strong>SF - AirPlay <em>v1.0</em></strong><small>ESP32-S3 Audio Receiver</small></div></div></div><div class="sf-dac"><div class="sf-dac-icon" aria-hidden="true">▣</div><div><b>AUDIOCULAR D07 DAC</b><span>ESP32-S3 N16R8</span></div><div class="sf-wave" aria-hidden="true">∿∿</div></div><div class="sf-tiles"><div class="sf-tile"><span class="sf-ico">◉</span><b>AirPlay</b><small>Audio Receiver</small></div><div class="sf-tile"><span class="sf-ico">⌁</span><b>USB DAC</b><small>AUDIOCULAR D07</small></div><div class="sf-tile"><span class="sf-ico">▥</span><b>Audio</b><small>24-bit · 48 kHz output</small></div></div>
+
+<section class="sf-volume-note">
+<b>♫ Master Volume</b>
+<p>Control playback volume from your AirPlay sender.
+The ESP32 audio firmware remains unchanged.</p>
+</section>
 <div id='status-bar' class='status-bar'>Loading...</div>
-<div class='card'><h2>WiFi Network</h2>
+<div class='card' id='wifi-panel'><h2>WiFi Network</h2>
 <button class='btn btn-secondary' onclick='scanWiFi()'>Scan Networks</button>
 <div id='wifi-list' class='wifi-list'></div>
 <div class='form-group'><label>Network Name (SSID)</label><input type='text' id='wifi-ssid' placeholder='Enter or select network'></div>
@@ -176,7 +364,7 @@ input[type=text],input[type=password],select{background:#1a1a1d!important;border
 <span class='file-name' id='fw-name'>No file selected</span></div>
 <button class='btn btn-primary btn-block' id='ota-btn' onclick='startOTA()' disabled>Upload Firmware</button>
 <div id='ota-msg'></div></div>
-<div class='card'><h2>System</h2>
+<div class='card' id='system-panel'><h2>System</h2>
 <div class='info-grid'>
 <div class='info-item'><label>IP Address</label><span id='info-ip'>-</span></div>
 <div class='info-item'><label>MAC Address</label><span id='info-mac'>-</span></div>
@@ -356,4 +544,12 @@ window.onload=function(){
 })();
 
 </script>
+
+<nav class="sf-mobile-nav" aria-label="Main navigation">
+  <a href="/" data-tab="home" class="current"><span>⌂</span>Home</a>
+  <a href="/eq" data-tab="eq"><span>☷</span>EQ</a>
+  <a href="/#wifi-panel"><span>◉</span>Wi-Fi</a>
+  <a href="/#system-panel"><span>⚙</span>System</a>
+</nav>
+
 </body></html>
