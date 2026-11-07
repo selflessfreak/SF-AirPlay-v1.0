@@ -1,6 +1,6 @@
 /*
  * AirPlay PCM -> USB UAC2 Host -> AUDIOCULAR D07
- * Initial integration: 48 kHz, stereo, packed 24-bit.
+ * D07 experimental output: 44.1 kHz, stereo, signed 16-bit PCM.
  */
 #include "audio_output.h"
 #include "audio_receiver.h"
@@ -22,7 +22,7 @@
 #include "usb/uac2_host.h"
 
 #define TAG "airplay_uac2"
-#define RATE 48000
+#define RATE 44100
 #define FRAME_SAMPLES 352
 #define MAX_FRAMES 4096
 #define SILENCE_FRAMES 96
@@ -42,17 +42,6 @@ static _Atomic bool s_playing;
 static _Atomic bool s_flush;
 static _Atomic int s_source_rate = 44100;
 static esp_err_t s_host_result = ESP_FAIL;
-
-static void pack24(const int16_t *src, uint8_t *dst, size_t frames)
-{
-    for (size_t i = 0; i < frames * 2; i++) {
-        /* Sign-extend 16-bit PCM to packed 24-bit PCM. */
-        int32_t v = (int32_t)src[i] * 256;
-        dst[i * 3]     = (uint8_t)v;
-        dst[i * 3 + 1] = (uint8_t)(v >> 8);
-        dst[i * 3 + 2] = (uint8_t)(v >> 16);
-    }
-}
 
 static void apply_volume(int16_t *pcm, size_t frames)
 {
@@ -137,7 +126,7 @@ static void playback_worker(void *arg)
 
     int16_t *pcm = malloc((FRAME_SAMPLES + 1) * 4);
     int16_t *resampled = malloc(MAX_FRAMES * 4);
-    uint8_t *usb_pcm = malloc(MAX_FRAMES * 6);
+    uint8_t *usb_pcm = malloc(MAX_FRAMES * 4);
 
     if (!pcm || !resampled || !usb_pcm) {
         ESP_LOGE(TAG, "Audio buffer allocation failed");
@@ -176,7 +165,7 @@ static void playback_worker(void *arg)
 
         uac2_host_stream_config_t stream = {
             .channels = 2,
-            .bit_resolution = 24,
+            .bit_resolution = 16,
             .sample_freq = RATE,
             .flags = 0,
         };
@@ -187,13 +176,13 @@ static void playback_worker(void *arg)
             uac2_host_stream_info_t info = {0};
             err = uac2_host_device_get_stream_info(dev, &info);
 
-            if (err == ESP_OK && info.sub_slot_size != 3)
+            if (err == ESP_OK && info.sub_slot_size != 2)
                 err = ESP_ERR_NOT_SUPPORTED;
         }
 
         if (err == ESP_OK) {
             ESP_LOGI(TAG,
-                "D07 streaming: 48000 Hz / 24-bit / stereo");
+                "D07 streaming: 44100 Hz / 16-bit / stereo");
 
             int configured_rate = 44100;
             audio_resample_init(44100, RATE, 2);
@@ -235,10 +224,10 @@ static void playback_worker(void *arg)
                 d07_eq_process(out, frames);
                 led_audio_feed(out, frames);
 
-                pack24(out, usb_pcm, frames);
+                memcpy(usb_pcm, out, frames * 4);
 
                 err = uac2_host_device_write(
-                    dev, usb_pcm, frames * 6, 1000);
+                    dev, usb_pcm, frames * 4, 1000);
 
                 if (err != ESP_OK) {
                     ESP_LOGW(TAG, "USB write: %s",
@@ -362,9 +351,9 @@ void audio_output_set_source_rate(int rate)
 
 void audio_output_set_sample_rate(uint32_t rate)
 {
-    /* D07 remains fixed at 48 kHz. */
+    /* D07 remains fixed at 44.1 kHz in this branch. */
     if (rate != RATE)
-        ESP_LOGW(TAG, "USB output fixed at 48000 Hz");
+        ESP_LOGW(TAG, "USB output fixed at 44100 Hz");
 }
 
 esp_err_t audio_output_write(const void *data,
